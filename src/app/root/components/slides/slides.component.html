@@ -1,0 +1,11 @@
+<div class="slides-container">
+  <div class="slide" *ngFor="let animes of animesChunks; let index = index">
+    <div [ngClass]="slideTrackClasses(index)">
+      <app-slide-card
+        class="item"
+        *ngFor="let anime of animes"
+        [anime]="anime"
+      ></app-slide-card>
+    </div>
+  </div>
+</div>
