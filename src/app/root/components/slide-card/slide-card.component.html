@@ -1,1 +1,12 @@
-<img [src]="anime.images?.['jpg']?.large_image_url" [alt]="anime.title"/>
+<div #container class="relative">
+  <img
+    #poster
+    class="rounded cursor-pointer"
+    [src]="anime.images?.['jpg']?.large_image_url"
+    [alt]="anime.title"
+    (mouseenter)="mouseEnterPoster(container)"
+    (mousemove)="mouseMovePoster($event)"
+    (mouseleave)="mouseLeavePoster(container)"
+  />
+  <!-- HERE GOES THE TRAILER -->
+</div>

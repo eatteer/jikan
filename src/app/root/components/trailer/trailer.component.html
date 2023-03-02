@@ -1,0 +1,9 @@
+<ng-content></ng-content>
+<div
+  #container
+  class="z-10 absolute w-96 rounded aspect-video bg-red-300 pointer-events-none"
+  [class.hidden]="!firstTime"
+>
+  <!-- HERE GOES THE IFRAME -->
+  <div #trailer class="w-full h-full">{{ title }}</div>
+</div>

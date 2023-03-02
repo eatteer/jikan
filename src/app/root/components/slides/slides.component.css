@@ -1,5 +1,5 @@
 :host {
-  --item-width: 180px;
+  --item-width: 176px;
   --items-number: 10;
   --slide-track-gap: 1rem;
   --animation-duration: 300s;
@@ -20,13 +20,18 @@
 }
 
 .slides-container {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
 .slide {
-  overflow: hidden;
+  position: relative;
+}
+
+.slide:hover {
+  z-index: 1;
 }
 
 .slide-track {
@@ -40,10 +45,13 @@
 }
 
 .item {
-  /* flex-shrink: 0; */
+  display: flex;
   width: var(--item-width);
-  aspect-ratio: 4/5;
-  border: 1px dashed blue;
+}
+
+.item ::ng-deep img {
+  height: 100%;
+  object-fit: cover;
 }
 
 .animation-slide-left {

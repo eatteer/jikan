@@ -1,5 +1,7 @@
-<div>
-  <button (click)="setCurrentFilter(F.Airing)">Airing</button>
-  <button (click)="setCurrentFilter(F.Upcoming)">Upcoming</button>
-</div>
-<app-slides [animesChunks]="animesChunks"></app-slides>
+<app-trailer>
+  <div>
+    <button (click)="setCurrentFilter(F.Airing)">Airing</button>
+    <button (click)="setCurrentFilter(F.Upcoming)">Upcoming</button>
+  </div>
+  <app-slides [animesChunks]="animesChunks"></app-slides>
+</app-trailer>
