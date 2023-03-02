@@ -10,7 +10,7 @@ export class TrailerComponent {
   public containerRef!: ElementRef<HTMLDivElement>;
 
   @ViewChild('trailer')
-  public trailer!: ElementRef<HTMLDivElement>;
+  public trailer!: ElementRef<HTMLIFrameElement>;
 
   // If has not been the first time the trailer is visible
   // then do not show the component

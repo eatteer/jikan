@@ -1,9 +1,16 @@
 <ng-content></ng-content>
 <div
   #container
-  class="z-10 absolute w-96 rounded aspect-video bg-red-300 pointer-events-none"
+  class="z-10 absolute w-[620px] rounded aspect-video bg-black pointer-events-none"
   [class.hidden]="!firstTime"
 >
   <!-- HERE GOES THE IFRAME -->
-  <div #trailer class="w-full h-full">{{ title }}</div>
+  <!-- <span id="trailer" #trailer class="w-full h-full">{{ title }}</span> -->
+  <iframe
+    #trailer
+    src=""
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    class="w-full h-full rounded"
+  ></iframe>
 </div>

@@ -27,6 +27,8 @@ export class SlideCardComponent {
     this.trailer.title = this.anime.title || 'Unknown';
     this.trailer.appendTo(container);
     // PLAY VIDEO
+    this.trailer.trailer.nativeElement.src =
+      this.anime.trailer?.embed_url + '&controls=0';
   }
 
   public mouseMovePoster(event: MouseEvent): void {
@@ -40,7 +42,6 @@ export class SlideCardComponent {
 
   public mouseLeavePoster(container: Element): void {
     this.trailer.removeFrom(container);
-    // STOP VIDEO
   }
 
   public getUrl(url?: string | null): SafeUrl {
