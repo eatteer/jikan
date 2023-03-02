@@ -27,8 +27,8 @@ export class SlideCardComponent {
     this.trailer.title = this.anime.title || 'Unknown';
     this.trailer.appendTo(container);
     // PLAY VIDEO
-    this.trailer.trailer.nativeElement.src =
-      this.anime.trailer?.embed_url + '&controls=0';
+    const url = this.anime.trailer?.embed_url;
+    this.trailer.trailer.nativeElement.src = url ? url + '&controls=0' : '';
   }
 
   public mouseMovePoster(event: MouseEvent): void {
