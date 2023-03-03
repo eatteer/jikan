@@ -1,17 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RootPageComponent } from './pages/root-page/root-page.component';
-import { SlidesComponent } from './components/slides/slides.component';
-import { SlideCardComponent } from './components/slide-card/slide-card.component';
-import { TrailerComponent } from './components/trailer/trailer.component';
+import { AnimeModule } from '../anime/anime.module';
 
 @NgModule({
-  declarations: [
-    RootPageComponent,
-    SlidesComponent,
-    SlideCardComponent,
-    TrailerComponent,
-  ],
-  imports: [CommonModule],
+  declarations: [RootPageComponent],
+  imports: [CommonModule, AnimeModule],
 })
 export class RootModule {}
