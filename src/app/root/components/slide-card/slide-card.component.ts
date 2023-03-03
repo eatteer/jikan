@@ -34,10 +34,27 @@ export class SlideCardComponent {
   public mouseMovePoster(event: MouseEvent): void {
     const poster = this.posterRef.nativeElement;
     const trailer = this.trailer.containerRef.nativeElement;
-    const rect = poster.getBoundingClientRect();
+    const posterRect = poster.getBoundingClientRect();
 
-    trailer.style.left = `${event.clientX - 40 - rect.left}px`;
-    trailer.style.top = `${event.clientY - 40 - rect.top}px`;
+    const viewportDimensions = {
+      width: document.documentElement.clientWidth,
+      height: document.documentElement.clientHeight,
+    };
+
+    const offset = 40;
+
+    // Position trailer relative to container
+    const top = event.clientY - offset - posterRect.top;
+    const left = event.clientX - offset - posterRect.left;
+    trailer.style.top = `${top}px`;
+    trailer.style.left = `${left}px`;
+
+    // Calculate if some trailer fragment is outside screen
+    const trailerRect = trailer.getBoundingClientRect();
+    if (trailerRect.right > viewportDimensions.width) {
+      trailer.style.left = '';
+      trailer.style.right = `${posterRect.right - offset - event.clientX}px`;
+    }
   }
 
   public mouseLeavePoster(container: Element): void {
