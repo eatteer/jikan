@@ -25,20 +25,34 @@
     </div>
   </div>
 </div>
-<div class="flex justify-center items-center btn-group">
-  <button (click)="setCurrentFilter(F.Airing)" class="btn btn-ghost">
+<div class="flex justify-center items-center tabs mt-4">
+  <button
+    routerLink="/airing"
+    routerLinkActive="tab-active"
+    class="tab tab-bordered"
+  >
     Airing
   </button>
-  <button (click)="setCurrentFilter(F.Upcoming)" class="btn btn-ghost">
+  <button
+    routerLink="/upcoming"
+    routerLinkActive="tab-active"
+    class="tab tab-bordered"
+  >
     Upcoming
   </button>
-  <button (click)="setCurrentFilter(F.ByPopulariry)" class="btn btn-ghost">
+  <button
+    routerLink="/bypopularity"
+    routerLinkActive="tab-active"
+    class="tab tab-bordered"
+  >
     Popular
   </button>
-  <button (click)="setCurrentFilter(F.Favorite)" class="btn btn-ghost">
-    Favorite
+  <button
+    routerLink="/favorite"
+    routerLinkActive="tab-active"
+    class="tab tab-bordered"
+  >
+    Favorites
   </button>
 </div>
-<app-trailer>
-  <app-slides [animesChunks]="animesChunks"></app-slides>
-</app-trailer>
+<router-outlet></router-outlet>
