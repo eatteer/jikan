@@ -43,10 +43,10 @@
 .slides-container::before {
   top: 0px;
   left: 0px;
-  background: rgb(0, 0, 0);
+  background: hsl(var(--b1));
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 1) 0%,
+    hsl(var(--b1)) 0%,
     rgba(255, 255, 255, 0) 100%
   );
 }
@@ -54,10 +54,10 @@
 .slides-container::after {
   top: 0px;
   right: 0px;
-  background: rgb(0, 0, 0);
+  background: hsl(var(--b1));
   background: linear-gradient(
     270deg,
-    rgba(0, 0, 0, 1) 0%,
+    hsl(var(--b1)) 0%,
     rgba(255, 255, 255, 0) 100%
   );
 }
