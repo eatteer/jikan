@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TopAnimeResponse } from '../interfaces/top-anime-response.interface';
 import { Filter } from '../interfaces/top-anime-request';
+import { SearchAnimeResponse } from '../interfaces/search-anime.response.interface';
 
 interface GetTopAnimeParams {
   filter?: Filter;
@@ -39,5 +40,11 @@ export class JikanService {
     return this.httpClient.get<TopAnimeResponse>(endpoint, {
       params: params,
     });
+  }
+
+  public getByQuery(query: string): Observable<SearchAnimeResponse> {
+    const params = new HttpParams().set('q', query);
+    const endpoint = `${environment.jikanApiBaseUrl}/anime`;
+    return this.httpClient.get<SearchAnimeResponse>(endpoint, { params });
   }
 }

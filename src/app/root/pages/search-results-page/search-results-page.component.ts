@@ -1,0 +1,30 @@
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { JikanService } from '../../../jikan/services/jikan.service';
+import { Anime } from '../../../jikan/interfaces/search-anime.response.interface';
+
+@Component({
+  selector: 'app-search-results-page',
+  templateUrl: './search-results-page.component.html',
+  styles: [],
+})
+export class SearchResultsPageComponent {
+  public animes: Anime[] = [];
+
+  public constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private jikanService: JikanService
+  ) {
+    this.activatedRoute.queryParamMap.subscribe((queryParams) => {
+      if (!queryParams.has('q')) {
+        this.router.navigate(['/filter/airing']);
+        return;
+      }
+      const query = queryParams.get('q')!;
+      this.jikanService.getByQuery(query).subscribe((searchAnimeResponse) => {
+        this.animes = searchAnimeResponse.data;
+      });
+    });
+  }
+}

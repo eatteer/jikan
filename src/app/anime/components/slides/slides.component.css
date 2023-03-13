@@ -83,6 +83,7 @@
 .item {
   display: flex;
   width: var(--item-width);
+  aspect-ratio: 2/3;
 }
 
 .item ::ng-deep img {

@@ -1,3 +1,33 @@
+<div class="flex justify-center items-center tabs">
+  <button
+    routerLink="/filter/airing"
+    routerLinkActive="tab-active"
+    class="tab tab-bordered"
+  >
+    Airing
+  </button>
+  <button
+    routerLink="/filter/upcoming"
+    routerLinkActive="tab-active"
+    class="tab tab-bordered"
+  >
+    Upcoming
+  </button>
+  <button
+    routerLink="/filter/bypopularity"
+    routerLinkActive="tab-active"
+    class="tab tab-bordered"
+  >
+    Popular
+  </button>
+  <button
+    routerLink="/filter/favorite"
+    routerLinkActive="tab-active"
+    class="tab tab-bordered"
+  >
+    Favorites
+  </button>
+</div>
 <app-trailer>
   <app-slides [animesChunks]="animesChunks"></app-slides>
 </app-trailer>

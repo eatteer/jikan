@@ -24,6 +24,7 @@ export class SlideCardComponent {
   ) {}
 
   public mouseEnterPoster(container: Element): void {
+    return;
     this.trailer.title = this.anime.title || 'Unknown';
     this.trailer.appendTo(container);
     // PLAY VIDEO
@@ -32,6 +33,7 @@ export class SlideCardComponent {
   }
 
   public mouseMovePoster(event: MouseEvent): void {
+    return;
     const poster = this.posterRef.nativeElement;
     const trailer = this.trailer.containerRef.nativeElement;
     const posterRect = poster.getBoundingClientRect();
@@ -58,6 +60,7 @@ export class SlideCardComponent {
   }
 
   public mouseLeavePoster(container: Element): void {
+    return;
     this.trailer.removeFrom(container);
   }
 

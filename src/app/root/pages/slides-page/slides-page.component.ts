@@ -22,7 +22,7 @@ export class SlidesPageComponent {
   ) {
     this.activatedRoute.paramMap.subscribe((params) => {
       if (!params.has('filter')) {
-        this.router.navigate(['/airing']);
+        this.router.navigate(['/filter/airing']);
         return;
       }
       const filter = params.get('filter')! as Filter;
@@ -31,7 +31,7 @@ export class SlidesPageComponent {
       // alert(filter);
       this.fetchAnimes();
       if (!isValidFilter) {
-        this.router.navigate(['/airing']);
+        this.router.navigate(['/filter/airing']);
         return;
       }
     });
