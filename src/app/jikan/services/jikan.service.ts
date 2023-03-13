@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { TopAnimeResponse } from '../interfaces/top-anime-response.interface';
 import { Filter } from '../interfaces/top-anime-request';
 import { SearchAnimeResponse } from '../interfaces/search-anime.response.interface';
+import { DetailAnimeResponse } from '../interfaces/detail-anime-response.interface';
 
 interface GetTopAnimeParams {
   filter?: Filter;
@@ -46,5 +47,10 @@ export class JikanService {
     const params = new HttpParams().set('q', query);
     const endpoint = `${environment.jikanApiBaseUrl}/anime`;
     return this.httpClient.get<SearchAnimeResponse>(endpoint, { params });
+  }
+
+  public getById(id: string): Observable<DetailAnimeResponse> {
+    const endpoint = `${environment.jikanApiBaseUrl}/anime/${id}`;
+    return this.httpClient.get<DetailAnimeResponse>(endpoint);
   }
 }

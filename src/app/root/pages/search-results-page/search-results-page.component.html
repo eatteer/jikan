@@ -7,7 +7,7 @@
     >
       <img
         class="w-32 aspect-[2/3] object-cover rounded"
-        [src]="anime.images?.['jpg']?.large_image_url"
+        [src]="anime.images['jpg'].large_image_url | fallbackImgUrl"
         [alt]="anime.title"
       />
       <div>

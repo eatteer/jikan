@@ -6,6 +6,9 @@ import { TrailerComponent } from './components/trailer/trailer.component';
 import { SearchResultsPageComponent } from '../root/pages/search-results-page/search-results-page.component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { AnimeRoutingModule } from './anime-routing.module';
+import { SharedModule } from '../shared/shared.module';
+import { FallbackEmbedUrlPipe } from './pipes/fallback-embed-url.pipe';
+import { FallbackImgUrlPipe } from './pipes/fallback-img-url.pipe';
 
 @NgModule({
   declarations: [
@@ -14,8 +17,15 @@ import { AnimeRoutingModule } from './anime-routing.module';
     TrailerComponent,
     SearchResultsPageComponent,
     DetailPageComponent,
+    FallbackEmbedUrlPipe,
+    FallbackImgUrlPipe,
   ],
-  imports: [CommonModule, AnimeRoutingModule],
-  exports: [SlideCardComponent, SlidesComponent, TrailerComponent],
+  imports: [CommonModule, AnimeRoutingModule, SharedModule],
+  exports: [
+    SlideCardComponent,
+    SlidesComponent,
+    TrailerComponent,
+    FallbackEmbedUrlPipe,
+  ],
 })
 export class AnimeModule {}
