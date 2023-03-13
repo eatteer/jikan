@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { NonNullableFormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { debounceTime, filter } from 'rxjs';
 
@@ -9,18 +9,32 @@ import { debounceTime, filter } from 'rxjs';
   styles: [],
 })
 export class SearchInputComponent implements OnInit {
-  public queryControl = new FormControl('', { nonNullable: true });
+  public form = this.fb.group({ query: [''] });
 
-  public constructor(private router: Router) {}
+  public constructor(
+    private fb: NonNullableFormBuilder,
+    private router: Router
+  ) {}
 
   public ngOnInit(): void {
-    this.queryControl.valueChanges
+    this.form.controls.query.valueChanges
       .pipe(
         debounceTime(500),
         filter((value) => value.trim().length > 3)
       )
-      .subscribe((value) => {
-        this.router.navigate(['search'], { queryParams: { q: value } });
+      .subscribe((query) => {
+        this.navigateForSearching(query);
       });
+  }
+
+  public submit(): void {
+    const { query } = this.form.value;
+    if (query && query.trim().length > 3) {
+      this.navigateForSearching(query);
+    }
+  }
+
+  private navigateForSearching(q: string): void {
+    this.router.navigate(['search'], { queryParams: { q } });
   }
 }
