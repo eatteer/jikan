@@ -1,12 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { AnimeService } from '../services/anime.service';
 
 @Pipe({
   name: 'fallbackImgUrl',
 })
 export class FallbackImgUrlPipe implements PipeTransform {
-  transform(url?: string): string {
-    const fallback =
-      'https://www.theatrecr.org/wp-content/uploads/2016/01/poster-placeholder.png';
+  public constructor(private animeService: AnimeService) {}
+
+  public transform(url?: string): string {
+    const fallback = this.animeService.fallbackUrls.img;
     return url ?? fallback;
   }
 }
