@@ -1,6 +1,10 @@
 <div class="max-w-3xl mx-auto px-4 mt-4 mb-12">
   <div class="flex flex-col gap-4">
-    <div *ngFor="let anime of animes" class="flex items-start gap-4">
+    <div
+      *ngFor="let anime of animes"
+      [routerLink]="'/anime/' + anime.mal_id"
+      class="flex items-start gap-4"
+    >
       <img
         class="w-32 aspect-[2/3] object-cover rounded"
         [src]="anime.images?.['jpg']?.large_image_url"
@@ -10,7 +14,9 @@
         <h3 class="md:text-xl font-bold">{{ anime.title }}</h3>
         <p>{{ anime.type }}</p>
         <p>{{ anime.episodes }} episodes</p>
-        <p class="text-sm md:text-base text-primary line-clamp-2">{{ anime.synopsis }}</p>
+        <p class="text-sm md:text-base text-primary line-clamp-2">
+          {{ anime.synopsis }}
+        </p>
       </div>
     </div>
   </div>
