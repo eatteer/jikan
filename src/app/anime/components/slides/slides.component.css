@@ -35,7 +35,7 @@
   z-index: 20;
   content: "";
   position: absolute;
-  width: 6rem;
+  width: 0rem;
   height: 100%;
   pointer-events: none;
 }

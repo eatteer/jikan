@@ -8,7 +8,9 @@ import {
   Filter,
   SearchAnimeResponse,
   TopAnimeResponse,
-} from '../interfaces/jikan.interace';
+  ReviewsAnimeResponse,
+  RecommendationsAnimeResponse,
+} from '../interfaces/jikan.interface';
 
 interface GetTopAnimeParams {
   filter?: Filter;
@@ -54,5 +56,17 @@ export class JikanService {
   public getById(id: string): Observable<DetailAnimeResponse> {
     const endpoint = `${environment.jikanApiBaseUrl}/anime/${id}`;
     return this.httpClient.get<DetailAnimeResponse>(endpoint);
+  }
+
+  public getAnimeReviews(id: string): Observable<ReviewsAnimeResponse> {
+    const endpoint = `${environment.jikanApiBaseUrl}/anime/${id}/reviews`;
+    return this.httpClient.get<ReviewsAnimeResponse>(endpoint);
+  }
+
+  public getAnimeRecommendations(
+    id: string
+  ): Observable<RecommendationsAnimeResponse> {
+    const endpoint = `${environment.jikanApiBaseUrl}/anime/${id}/recommendations`;
+    return this.httpClient.get<RecommendationsAnimeResponse>(endpoint);
   }
 }

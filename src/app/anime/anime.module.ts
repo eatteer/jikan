@@ -9,6 +9,8 @@ import { AnimeRoutingModule } from './anime-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { FallbackEmbedUrlPipe } from './pipes/fallback-embed-url.pipe';
 import { FallbackImgUrlPipe } from './pipes/fallback-img-url.pipe';
+import { ReviewComponent } from './components/review/review.component';
+import { AnimeDetailComponent } from './components/anime-detail/anime-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { FallbackImgUrlPipe } from './pipes/fallback-img-url.pipe';
     DetailPageComponent,
     FallbackEmbedUrlPipe,
     FallbackImgUrlPipe,
+    ReviewComponent,
+    AnimeDetailComponent,
   ],
   imports: [CommonModule, AnimeRoutingModule, SharedModule],
   exports: [

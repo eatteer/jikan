@@ -1,0 +1,14 @@
+<div class="flex gap-4">
+  <img
+    class="w-12 h-12 md:w-20 md:h-20 aspect-square rounded-full object-cover"
+    [src]="review.user.images['jpg'].image_url"
+    [alt]="review.user.username"
+  />
+  <div>
+    <div class="flex gap-2">
+      <p class="font-bold">{{ review.user.username }}</p>
+      <p>{{ review.date | date }}</p>
+    </div>
+    <p class="line-clamp-4">{{ review.review }}</p>
+  </div>
+</div>

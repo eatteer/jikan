@@ -64,6 +64,75 @@ export interface DetailAnimeResponse {
 }
 // DETAIL ANIME RESPONSE
 
+// REVIEWS ANIME RESPONSE
+export interface ReviewsAnimeResponse {
+  pagination: Pagination;
+  data: Review[];
+}
+
+export interface Review {
+  mal_id: number;
+  url: string;
+  type: Type;
+  reactions: Reactions;
+  date: Date;
+  review: string;
+  score: number;
+  tags: Tag[];
+  is_spoiler: boolean;
+  is_preliminary: boolean;
+  episodes_watched: null;
+  user: User;
+}
+
+export interface Reactions {
+  overall?: number;
+  nice?: number;
+  love_it?: number;
+  funny?: number;
+  confusing?: number;
+  informative?: number;
+  well_written?: number;
+  creative?: number;
+}
+
+export enum Type {
+  Anime = 'anime',
+}
+
+export enum Tag {
+  MixedFeelings = 'Mixed Feelings',
+  NotRecommended = 'Not Recommended',
+  Preliminary = 'Preliminary',
+  Recommended = 'Recommended',
+}
+
+export interface User {
+  url: string;
+  username: string;
+  images: { [key: string]: Image };
+}
+// REVIEWS ANIME RESPONSE
+
+// RECOMMENDATIONS ANIME RESPONSE
+export interface RecommendationsAnimeResponse {
+  data: Recommendation[];
+}
+
+export interface Recommendation {
+  entry: Entry;
+  url: string;
+  votes: number;
+}
+
+export interface Entry {
+  mal_id: number;
+  url: string;
+  images: { [key: string]: Image };
+  title: string;
+}
+// RECOMMENDATIONS ANIME RESPONSE
+
 export interface Anime {
   mal_id: number;
   url: string;

@@ -10,32 +10,55 @@
       allowfullscreen
     ></iframe>
   </div>
-
-  <div class="max-w-3xl mx-auto p-4 py-12">
-    <div class="flex gap-8 justify-between items-start">
-      <!-- Details -->
-      <div>
-        <h1 class="text-3xl font-bold">{{ anime.title }}</h1>
-        <div class="text-primary font-medium mb-4">
-          <p>{{ anime.type }}</p>
-          <p>{{ anime.status }}</p>
-          <p>{{ anime.episodes }} episodes</p>
-          <p class="mt-4 font-normal">{{ anime.synopsis }}</p>
+  <!-- Page -->
+  <div class="max-w-5xl mx-auto p-4 py-12">
+    <!-- Anime detail -->
+    <section>
+      <app-anime-detail [anime]="anime"></app-anime-detail>
+    </section>
+    <!-- Reviews -->
+    <section class="my-8">
+      <h2 class="text-2xl font-bold mb-4">Reviews</h2>
+      <app-collapsible *ngIf="reviews.length > 0; else noReviews">
+        <div
+          #content
+          ngProjectAs="content"
+          class="flex flex-col gap-8 max-h-96 overflow-y-hidden"
+        >
+          <app-review
+            *ngFor="let review of reviews"
+            [review]="review"
+          ></app-review>
         </div>
-        <div class="flex gap-2">
-          <div *ngFor="let genre of anime.genres">
-            <span class="badge badge-primary font-medium">{{
-              genre.name
-            }}</span>
-          </div>
+      </app-collapsible>
+      <ng-template #noReviews>
+        <p>There are no reviews</p>
+      </ng-template>
+    </section>
+    <!-- Recommendations -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">More like this</h2>
+      <div
+        *ngIf="recommendations.length > 0; else noRecommendations"
+        class="flex items-start gap-4 overflow-x-scroll scrollbar-hide"
+      >
+        <div
+          *ngFor="let recommendation of recommendations"
+          class="w-40 flex-shrink-0"
+        >
+          <img
+            class="jk-poster"
+            [src]="recommendation.entry.images['jpg'].large_image_url"
+            [alt]="recommendation.entry.title"
+          />
+          <p class="text-sm font-medium mt-2">
+            {{ recommendation.entry.title }}
+          </p>
         </div>
       </div>
-      <!-- Poster -->
-      <img
-        class="w-60 aspect-[2/3] object-cover rounded hidden md:flex"
-        [src]="anime.images['jpg'].large_image_url | fallbackImgUrl"
-        [alt]="anime.title"
-      />
-    </div>
+      <ng-template #noRecommendations>
+        <p>There are no recommendations</p>
+      </ng-template>
+    </section>
   </div>
 </div>

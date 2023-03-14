@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Anime } from 'src/app/jikan/interfaces/jikan.interace';
+import { Anime } from 'src/app/jikan/interfaces/jikan.interface';
 import { JikanService } from '../../../jikan/services/jikan.service';
 
 @Component({
