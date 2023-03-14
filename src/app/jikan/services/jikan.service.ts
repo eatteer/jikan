@@ -3,10 +3,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { TopAnimeResponse } from '../interfaces/top-anime-response.interface';
-import { Filter } from '../interfaces/top-anime-request';
-import { SearchAnimeResponse } from '../interfaces/search-anime.response.interface';
-import { DetailAnimeResponse } from '../interfaces/detail-anime-response.interface';
+import {
+  DetailAnimeResponse,
+  Filter,
+  SearchAnimeResponse,
+  TopAnimeResponse,
+} from '../interfaces/jikan.interace';
 
 interface GetTopAnimeParams {
   filter?: Filter;

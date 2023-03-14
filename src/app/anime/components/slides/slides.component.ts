@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Anime } from 'src/app/jikan/interfaces/top-anime-response.interface';
+import { Anime } from 'src/app/jikan/interfaces/jikan.interace';
 
 @Component({
   selector: 'app-slides',

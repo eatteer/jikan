@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Filter } from 'src/app/jikan/interfaces/top-anime-request';
 import { JikanService } from '../../../jikan/services/jikan.service';
-import { Anime } from '../../../jikan/interfaces/top-anime-response.interface';
 import { forkJoin } from 'rxjs';
+import { Anime, Filter } from 'src/app/jikan/interfaces/jikan.interace';
 
 @Component({
   selector: 'app-slides-page',

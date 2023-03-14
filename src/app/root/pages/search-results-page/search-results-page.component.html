@@ -3,7 +3,7 @@
     <div
       *ngFor="let anime of animes"
       [routerLink]="'/anime/' + anime.mal_id"
-      class="flex items-start gap-4"
+      class="flex items-start gap-4 rounded hover:bg-neutral hover:scale-105 hover:cursor-pointer transition-all"
     >
       <img
         class="w-32 aspect-[2/3] object-cover rounded"

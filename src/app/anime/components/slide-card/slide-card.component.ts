@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { Anime } from '../../../jikan/interfaces/top-anime-response.interface';
+import { Anime } from 'src/app/jikan/interfaces/jikan.interace';
 import { TrailerComponent } from '../trailer/trailer.component';
 
 @Component({
