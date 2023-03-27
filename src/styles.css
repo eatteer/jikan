@@ -6,14 +6,35 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.jk-gradient-text {
-  @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-base-content to-primary;
+@layer utilities {
+  .jk-gradient-text {
+    @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-base-content to-primary;
+  }
+
+  .jk-rounded-button {
+    @apply w-10 h-10 aspect-square text-primary-content rounded-full bg-neutral hover:bg-neutral-focus;
+  }
 }
 
-.jk-poster {
-  @apply aspect-[2/3] object-cover rounded;
-}
+@layer components {
+  .jk-poster {
+    @apply aspect-[2/3] object-cover rounded;
+  }
 
-.jk-rounded-button {
-  @apply w-10 h-10 aspect-square text-primary-content rounded-full bg-neutral hover:bg-neutral-focus;
+  .jk-container {
+    --container-min-horizontal-margin: 1rem;
+    --container-max-width: 1024px;
+    max-width: var(--container-max-width);
+    --min-m: var(--container-min-horizontal-margin);
+    --auto-m: calc((100vw - var(--container-max-width)) / 2);
+    margin: 0 max(var(--min-m), var(--auto-m));
+  }
+
+  .jk-skeleton {
+    @apply bg-gray-300 animate-pulse;
+  }
+
+  .jk-skeleton-p {
+    @apply h-4;
+  }
 }

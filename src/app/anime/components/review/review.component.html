@@ -1,14 +1,34 @@
-<div class="flex gap-4">
+<div *ngIf="review; else noReview" class="flex gap-4">
   <img
     class="w-12 h-12 md:w-20 md:h-20 aspect-square rounded-full object-cover"
     [src]="review.user.images['jpg'].image_url"
     [alt]="review.user.username"
   />
   <div>
-    <div class="flex gap-2">
+    <div class="flex items-center gap-2">
       <p class="font-bold">{{ review.user.username }}</p>
       <p>{{ review.date | date }}</p>
     </div>
     <p class="line-clamp-4">{{ review.review }}</p>
   </div>
 </div>
+
+<ng-template #noReview>
+  <div class="flex gap-4">
+    <div
+      class="jk-skeleton w-12 h-12 md:w-20 md:h-20 aspect-square rounded-full object-cover"
+    ></div>
+    <div class="flex-grow">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-20 jk-skeleton jk-skeleton-p rounded"></div>
+        <div class="w-20 jk-skeleton jk-skeleton-p rounded"></div>
+      </div>
+      <div class="space-y-2">
+        <div class="w-full jk-skeleton jk-skeleton-p rounded"></div>
+        <div class="w-full jk-skeleton jk-skeleton-p rounded"></div>
+        <div class="w-full jk-skeleton jk-skeleton-p rounded"></div>
+        <div class="w-2/3 jk-skeleton jk-skeleton-p rounded"></div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,21 @@
+<!-- UNDEFINED - LOADING DATA -->
+<ng-container *ngIf="!reviews">
+  <div class="flex flex-col gap-8 max-h-96 overflow-y-hidden">
+    <app-review
+      *ngFor="let index of [1, 2, 3]"
+      [review]="undefined"
+    ></app-review>
+  </div>
+</ng-container>
+
+<!-- NO REVIEWS -->
+<ng-container *ngIf="reviews && reviews.length === 0">
+  <p>There are no reviews</p>
+</ng-container>
+
+<!-- REVIEWS -->
+<app-collapsible *ngIf="reviews && reviews.length > 0">
+  <div #content class="flex flex-col gap-8 max-h-96">
+    <app-review *ngFor="let review of reviews" [review]="review"></app-review>
+  </div>
+</app-collapsible>

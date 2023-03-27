@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+// Components
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 
 const routes: Routes = [

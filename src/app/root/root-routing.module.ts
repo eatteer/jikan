@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+// Components
 import { RootPageComponent } from './pages/root-page/root-page.component';
 import { SlidesPageComponent } from './pages/slides-page/slides-page.component';
 import { SearchResultsPageComponent } from './pages/search-results-page/search-results-page.component';

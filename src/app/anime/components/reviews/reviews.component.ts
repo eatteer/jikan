@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Review } from 'src/app/jikan/interfaces/jikan.interface';
 
 @Component({
-  selector: 'app-review',
-  templateUrl: './review.component.html',
+  selector: 'app-reviews',
+  templateUrl: './reviews.component.html',
   styles: [],
 })
-export class ReviewComponent {
+export class ReviewsComponent {
   @Input()
-  public review?: Review;
+  public reviews?: Review[];
 }

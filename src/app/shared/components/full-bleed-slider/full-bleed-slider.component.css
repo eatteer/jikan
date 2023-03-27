@@ -1,0 +1,31 @@
+/* Slide */
+:host {
+  --slider-min-horizontal-margin: 1rem;
+  --slider-max-width: 1024px;
+  --slider-gap: 1rem;
+
+  display: flex;
+  overflow-x: auto;
+}
+
+:host::before,
+:host::after {
+  content: "";
+  --min-m: var(--slider-min-horizontal-margin) / 2;
+  --auto-m: calc((100vw - var(--slider-max-width)) / 4);
+  padding: 0 max(var(--min-m), var(--auto-m));
+  /* border: 1px dashed red; */
+}
+
+::ng-deep .jk-fbs-item {
+  flex-shrink: 0;
+  margin: 0 calc(var(--slider-gap) / 2);
+}
+
+::ng-deep .jk-fbs-item:first-child {
+  margin-left: 0;
+}
+
+::ng-deep .jk-fbs-item:last-child {
+  margin-right: 0;
+}

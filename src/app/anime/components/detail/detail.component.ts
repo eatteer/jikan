@@ -3,10 +3,10 @@ import { Anime } from 'src/app/jikan/interfaces/jikan.interface';
 
 @Component({
   selector: 'app-anime-detail',
-  templateUrl: './anime-detail.component.html',
+  templateUrl: './detail.component.html',
   styles: [],
 })
-export class AnimeDetailComponent {
+export class DetailComponent {
   @Input()
-  public anime!: Anime;
+  public anime?: Anime;
 }

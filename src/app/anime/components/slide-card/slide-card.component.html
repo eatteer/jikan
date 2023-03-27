@@ -2,7 +2,7 @@
   <img
     #poster
     class="rounded cursor-pointer"
-    [src]="anime.images?.['jpg']?.large_image_url"
+    [src]="anime.images['jpg'].large_image_url | fallbackImgUrl"
     [alt]="anime.title"
     [routerLink]="'/anime/' + anime.mal_id"
     (mouseenter)="mouseEnterPoster(container)"

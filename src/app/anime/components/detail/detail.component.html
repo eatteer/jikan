@@ -1,0 +1,62 @@
+<div *ngIf="anime; else noAnime" class="flex gap-8 items-start">
+  <!-- Poster -->
+  <img
+    class="w-60 aspect-[2/3] object-cover rounded hidden md:flex"
+    [src]="anime.images['jpg'].large_image_url | fallbackImgUrl"
+    [alt]="anime.title"
+  />
+  <!-- Details -->
+  <div>
+    <h1 class="text-3xl font-bold mb-4">{{ anime.title }}</h1>
+    <div class="font-medium mb-4">
+      <p>{{ anime.type }}</p>
+      <p>{{ anime.status }}</p>
+      <p>{{ anime.episodes }} episodes</p>
+      <p class="mt-4 text-justify font-normal">
+        {{ anime.synopsis }}
+      </p>
+    </div>
+    <div class="flex gap-2">
+      <div *ngFor="let genre of anime.genres">
+        <span class="badge badge-lg font-medium">
+          {{ genre.name }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKELETON -->
+<ng-template #noAnime>
+  <div class="flex gap-8 items-start">
+    <!-- Poster -->
+    <div
+      class="flex-shrink-0 w-60 aspect-[2/3] mb-12 rounded jk-skeleton"
+    ></div>
+    <!-- Details -->
+    <div class="flex-grow">
+      <div class="mb-4">
+        <div class="w-full h-9 jk-skeleton rounded mb-4"></div>
+        <div class="space-y-2 mb-4">
+          <div class="w-10 jk-skeleton jk-skeleton-p rounded"></div>
+          <div class="w-28 jk-skeleton jk-skeleton-p rounded"></div>
+          <div class="w-24 jk-skeleton jk-skeleton-p rounded"></div>
+        </div>
+        <div class="space-y-2">
+          <div class="w-full jk-skeleton jk-skeleton-p rounded"></div>
+          <div class="w-full jk-skeleton jk-skeleton-p rounded"></div>
+          <div class="w-full jk-skeleton jk-skeleton-p rounded"></div>
+          <div class="w-full jk-skeleton jk-skeleton-p rounded"></div>
+          <div class="w-full jk-skeleton jk-skeleton-p rounded"></div>
+          <div class="w-full jk-skeleton jk-skeleton-p rounded"></div>
+          <div class="w-2/3 jk-skeleton jk-skeleton-p rounded"></div>
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <div class="w-20 h-6 jk-skeleton rounded-full"></div>
+        <div class="w-20 h-6 jk-skeleton rounded-full"></div>
+        <div class="w-20 h-6 jk-skeleton rounded-full"></div>
+      </div>
+    </div>
+  </div>
+</ng-template>

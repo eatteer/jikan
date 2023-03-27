@@ -1,0 +1,3 @@
+:host {
+  @apply flex-shrink-0 w-44 p-2 rounded hover:bg-base-200 hover:scale-105 transition-all cursor-pointer;
+}

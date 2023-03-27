@@ -27,7 +27,6 @@ export class SlidesPageComponent {
       const filter = params.get('filter')! as Filter;
       const isValidFilter = Object.values(Filter).includes(filter);
       this.filter = filter as Filter;
-      // alert(filter);
       this.fetchAnimes();
       if (!isValidFilter) {
         this.router.navigate(['/filter/airing']);

@@ -1,0 +1,26 @@
+<!-- UNDEFINED - LOADING DATA -->
+<ng-container *ngIf="!recommendations">
+  <app-full-bleed-slider class="scrollbar-hide py-2 -mx-2">
+    <app-recommendation
+      *ngFor="let index of [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+      [recommendation]="undefined"
+    ></app-recommendation>
+  </app-full-bleed-slider>
+</ng-container>
+
+<!-- NO RECOMMENDATIONS -->
+<ng-container *ngIf="recommendations && recommendations.length === 0">
+  <p class="jk-container">There are no recommendations</p>
+</ng-container>
+
+<!-- RECOMMENDATIONS -->
+<app-full-bleed-slider
+  *ngIf="recommendations && recommendations.length > 0"
+  class="scrollbar-hide py-2 -ml-2"
+>
+  <app-recommendation
+    *ngFor="let recommendation of recommendations"
+    routerLink="/anime/{{ recommendation.entry.mal_id }}"
+    [recommendation]="recommendation"
+  ></app-recommendation>
+</app-full-bleed-slider>

@@ -1,0 +1,17 @@
+<ng-container *ngIf="recommendation; else noRecommendation">
+  <img
+    class="jk-poster"
+    [src]="recommendation.entry.images['jpg'].large_image_url"
+    [alt]="recommendation.entry.title"
+  />
+  <p class="text-sm font-medium mt-2">
+    {{ recommendation.entry.title }}
+  </p>
+</ng-container>
+
+<ng-template #noRecommendation>
+  <ng-container>
+    <div class="jk-poster jk-skeleton rounded mb-2"></div>
+    <div class="w-2/3 jk-skeleton jk-skeleton-p rounded"></div>
+  </ng-container>
+</ng-template>
