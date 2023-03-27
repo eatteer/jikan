@@ -1,2 +1,6 @@
 # Jikan
-![Jikan](https://user-images.githubusercontent.com/55556476/222819562-2be398fc-1824-4f0c-a62b-577d5a4c07f1.png)
+
+## Screenshots
+![root](https://user-images.githubusercontent.com/55556476/228076121-0dd44af7-db5f-479b-a635-4eb01b16e551.png)
+![detail](https://user-images.githubusercontent.com/55556476/228076134-82c277cc-8285-4405-8fbb-3ce4524ea780.png)
+
